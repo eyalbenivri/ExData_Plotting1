@@ -24,9 +24,12 @@ todate <- ymd("2007-02-02")
 # subset the dataset
 sdf <- subset(df, Date >= fromdate & Date <= todate)
 
-# plot 2
-with(sdf, plot(Date + Time, Global_active_power, type = "l", xlab = "", ylab = "Global Active Power (killowatts)"))
+# plot 3
+with(sdf, plot(Date + Time, Sub_metering_1, type = "l", xlab = "", ylab = "Energy sub metering"))
+with(sdf, lines(Date + Time, Sub_metering_2, col = "red"))
+with(sdf, lines(Date + Time, Sub_metering_3, col = "blue"))
+
 
 #copy to png
-dev.copy(png, "./Plot2.png")
-dev.off
+dev.copy(png, "./Plot3.png")
+dev.off()
