@@ -24,4 +24,9 @@ todate <- ymd("2007-02-02")
 # subset the dataset
 sdf <- subset(df, Date >= fromdate & Date <= todate)
 
-hist(sdf$Global_active_power, col = "red", main = "Global Active Power", xlab = "Global Active Power (killowatts)")
+# plot 2
+with(sdf, plot(Date + Time, Global_active_power, type = "l", xlab = "", ylab = "Global Active Power (killowatts)"))
+
+#copy to png
+dev.copy(png, "./Plot2.png")
+dev.off()
